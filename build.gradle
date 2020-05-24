@@ -1,14 +1,37 @@
 plugins {
     id 'java'
+    id 'org.springframework.boot' version '2.3.0.RELEASE'
+    id 'io.spring.dependency-management' version '1.0.9.RELEASE'
 }
 
 group 'com.vaddya'
 version '1.0-SNAPSHOT'
+sourceCompatibility = JavaVersion.VERSION_14
 
 repositories {
     mavenCentral()
 }
 
 dependencies {
-    testCompile group: 'junit', name: 'junit', version: '4.12'
+    implementation 'org.springframework.boot:spring-boot-starter-web'
+    implementation 'org.springframework.boot:spring-boot-starter-data-jpa'
+
+    implementation 'org.jetbrains:annotations:19.0.0'
+    testImplementation('org.springframework.boot:spring-boot-starter-test') {
+        exclude group: 'org.junit.vintage', module: 'junit-vintage-engine'
+    }
+
+    compile 'javax.persistence:javax.persistence-api:2.2'
+
+    annotationProcessor 'org.springframework.boot:spring-boot-configuration-processor'
+
+    def lombok = "org.projectlombok:lombok:1.18.12"
+    compileOnly(lombok)
+    annotationProcessor(lombok)
+    testCompileOnly(lombok)
+    testAnnotationProcessor(lombok)
+}
+
+test {
+    useJUnitPlatform()
 }
