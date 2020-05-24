@@ -14,7 +14,6 @@ import lombok.Data;
 @Table(name = "house_rules")
 @Data
 public class HouseRules {
-
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Integer id;

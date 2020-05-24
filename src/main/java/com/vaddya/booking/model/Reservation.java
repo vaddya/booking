@@ -20,7 +20,6 @@ import org.hibernate.annotations.ColumnTransformer;
 @Entity
 @Data
 public class Reservation {
-
     public enum Status {
         PENDING,
         PAYMENT,
@@ -46,12 +45,11 @@ public class Reservation {
     @Column(name = "`to`")
     private Date to;
 
+    private Status status;
+
     @Column(columnDefinition = "money")
     @ColumnTransformer(read = "price::money::numeric", write = "?::numeric::money")
     private BigDecimal price;
-
-    @Column(name = "is_paid")
-    private Boolean isPaid;
 
     @OneToMany(mappedBy = "reservation", cascade = CascadeType.ALL)
     private Set<Guest> guests;

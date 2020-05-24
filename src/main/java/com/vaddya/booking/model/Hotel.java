@@ -12,7 +12,6 @@ import lombok.Data;
 @Entity
 @Data
 public class Hotel {
-
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Integer id;

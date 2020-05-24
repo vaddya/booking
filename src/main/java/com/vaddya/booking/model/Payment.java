@@ -13,7 +13,6 @@ import lombok.Data;
 @Entity
 @Data
 public class Payment {
-
     public enum Status {
         SUCCEEDED,
         FAILED,

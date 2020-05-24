@@ -8,9 +8,6 @@ import lombok.Data;
 @Entity
 @Data
 public class Country {
-
     @Id
-    private String id;
-
     private String name;
 }

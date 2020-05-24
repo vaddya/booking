@@ -22,7 +22,6 @@ import org.hibernate.annotations.ColumnTransformer;
 @Entity
 @Data
 public class Room {
-
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
